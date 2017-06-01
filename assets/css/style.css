@@ -1,0 +1,46 @@
+body {
+	background-image:url("../images/glass.jpg");
+	background-repeat: repeat;
+}
+
+h1 {font-family: 'Fondamento', cursive;
+	font-size:40px;
+	font-weight:bolder;
+	color:#fff;
+	text-align:center;
+	padding:15px;
+	background-color:#13b9d7;
+
+}
+
+h2 {
+	font-family: 'Fondamento', cursive;
+	font-size:20px;
+	text-align:center;
+}
+
+.game {
+	font-family: 'Fondamento', cursive;
+	background-color:#fff;
+	border-style:groove;
+	border-width:5px;
+	border-color:#7fdaff;
+	width:35%;
+	padding:10px;
+	margin-top:10%;
+	float:left;
+	margin-left:10%;
+}
+
+.image {
+	font-family: 'Fondamento', cursive;
+	background-color:#fff;
+	border-style:groove;
+	border-width:5px;
+	border-color:#7fdaff;
+	width:35%;
+	padding:10px;
+	margin-top:10%;
+	margin-right:10%;
+	float:right;
+}
