@@ -8,20 +8,29 @@
 		<title>Hangman Game</title>
 	</head>
 	<body>
+
 		<h1>Hangman: Fairy Tale Version</h1>
 		<hr>
 			<div class="game">
 				<h2>Once upon a time...</h2>
-				<div>Press any key to get started!</div>
-				<div>Wins:</div>
-				<div>Mystery Word:</div>
-				<div>Number of Guesses Remaining:</div>
-				<div>Letters Already Guessed:</div>
+					<div onkeypress="startGame()">Press any key to get started!</div>
+					<div>Wins:<span class=score id=wins></span></div>
+					<div>Losses:<span class=score id=losses></span></div>
+					<div id="guesses">Letters Already Guessed: <span id="guessesLeft"></span></div>
+					<div>Guesses Remaining: <span id="guessesLeft"></span></div>
+
 			</div>
+				
+
+
+			
+
 			<div class="image">
-			<p>Fary Tale stories</p>
-			<img url="assets/images/fa8.gif">
+			<p>Fary Tale Stories</p>
+			<img src="assets/images/fa8.gif">
 			</div>
 
+
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</body>
 </html>
