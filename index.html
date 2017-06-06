@@ -1,36 +1,42 @@
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Bad+Script|Fondamento" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fondamento" rel="stylesheet">
 		<title>Hangman Game</title>
 	</head>
 	<body>
-
 		<h1>Hangman: Fairy Tale Version</h1>
+		<br>
+		<h2 id="playHangman"></h2>
 		<hr>
-			<div class="game">
-				<h2>Once upon a time...</h2>
-					<div onkeypress="startGame()">Press any key to get started!</div>
-					<div>Wins:<span class=score id=wins></span></div>
-					<div>Losses:<span class=score id=losses></span></div>
-					<div id="guesses">Letters Already Guessed: <span id="guessesLeft"></span></div>
-					<div>Guesses Remaining: <span id="guessesLeft"></span></div>
-
-			</div>
-				
-
-
 			
-
+			<div class="game">
+				
+				<br>
+					<h2>Choose a letter</h2><div id="displayLetters"></div>
+					<br>
+					<h2>Guess the word<h2><div id="word"></div>
+					<br>
+					<p >Wins: </p>
+					<br>
+					<p>Losses: </p>
+					<br>
+					<p>Letters guessed: </p>
+					<br>
+					<p>Guesses remaining: </p>
+ 
+			</div>
 			<div class="image">
-			<p>Fary Tale Stories</p>
-			<img src="assets/images/fa8.gif">
+				
+				<p>Fary Tale Stories</p>
+				
+				<img alt="Fairy" src="assets/images/fa8.gif">
+			
 			</div>
 
-
-		<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</body>
 </html>
