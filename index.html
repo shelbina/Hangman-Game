@@ -9,24 +9,23 @@
 	</head>
 	<body>
 		<h1>Hangman: Fairy Tale Version</h1>
-		<br>
-		<h2 id="playHangman"></h2>
+		<h1 id="playHangman"></h1>
 		<hr>
 			
 			<div class="game">
-				
+				<h2 id="wordblanks">_ _ _ _ _ _ _ _ _ </h2> 
 				<br>
 					<h2>Choose a letter</h2><div id="displayLetters"></div>
 					<br>
 					<h2>Guess the word<h2><div id="word"></div>
 					<br>
-					<p >Wins: </p>
+					<p >Wins: <span id="winCounter">0</span></p>
 					<br>
-					<p>Losses: </p>
+					<p>Losses:<span id="lossCounter">0</span></p>
 					<br>
-					<p>Letters guessed: </p>
+					<p>Letters guessed: <span id="wrongGuesses"></span> </p>
 					<br>
-					<p>Guesses remaining: </p>
+					<p>Guesses remaining: <span id="guessesLeft">9</span></p>
  
 			</div>
 			<div class="image">
@@ -34,6 +33,7 @@
 				<p>Fary Tale Stories</p>
 				
 				<img alt="Fairy" src="assets/images/fa8.gif">
+				<div id="picture"></div>
 			
 			</div>
 

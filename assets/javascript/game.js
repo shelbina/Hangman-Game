@@ -1,22 +1,112 @@
-var playHangman = confirm("Do you want to play hangman to guess the fairy tale?")
-	if (playHangman) {console.log("Press any key to take a guess and begin.")}
-	else {(playHangman)}{console.log("Have a nice day.")};
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var mysteryWord = ["Beauty and the Beast", "Cinderella", "The Ginger Bread Man", "Goldilocks and the Three Bears", "The Little Mermaid", "The Little Red Hen", "Sleeping Beauty", "Stone Soup", "Three Billy Goats Gruff", "Three Little Pigs", "The Ugly Duckling"];
+/*My variables*/ 
+var mysteryWord = ["beauty and the beast", "cinderella", "the ginger bread man", "goldilocks and the three bears", "The Little Mermaid", "The Little Red Hen", "Sleeping Beauty", "Stone Soup", "Three Billy Goats Gruff", "Three Little Pigs", "The Ugly Duckling"];
 var picture = ["assets/images/beautyBeast.jpg", "assets/images/cinderella.jpg", "assets/images/gingerbread-man.png", "assets/images/goldilocks.jpg", "assets/images/littlemermaid.jpg", "assets/images/hen.jpg",  "assets/images/sleeping-beauty.jpg", "assets/images/stone-soup.jpg", "assets/images/goats.jpg",  "assets/images/Three_Little_Pigs.png", "assets/images/ugly.png"];
-var wins = 0;
-var lose = 0;
-var chosenWord = randomWord [Math.floor(Math.random() * mysteryWord.length)];
+var chosenWord = "";
+var lettersInChosenWord = [];
+var numBlanks = 0;
+var blanksAndSuccesses = [];
+var wrongGuesses = [];
 
-document.getElementById("displayLetters").innerHTML = letters;
+var winCounter = 0;
+var lossCounter = 0;
+var numGuesses = 11;
 
-///generate and display random mystery word
-var word = mysteryWord[Math.floor(Math.random() * mysteryWord.length)];
-console.log(word);
-document.getElementById("word").textContent = word;
 
-function randomWord() {pickedWord = Math.floor(Math.random() * mysteryWord.length);
-        chosenWord = mysteryWord[pickedWord]; 
-        mysteryWord.splice(pickedWord, 1); 
-        selectedWord = chosenWord.split("");
+function startGame() {
+
+    numGuesses = 11;
+
+    chosenWord = mysteryWord[Math.floor(Math.random() * mysteryWord.length)];
+    lettersInChosenWord = chosenWord.split("");
+    numBlanks = lettersInChosenWord.length;
+
+    console.log(mysteryWord);
+    blanksAndSuccesses = [];
+    wrongGuesses = [];
+
+
+    for (var i = 0; i < numBlanks; i++) {
+        blanksAndSuccesses.push("_");
+    }
+
+    console.log(blanksAndSuccesses);
+
+
+    document.getElementById("guessesLeft").innerHTML = numGuesses;
+
+
+    document.getElementById("wordblanks").innerHTML = blanksAndSuccesses.join(" ");
+
+
+    document.getElementById('wrongGuesses').innerHTML = wrongGuesses.join(" ");
+}
+
+function checkLetters(letter) {
+
+    var letterInWord = false;
+
+
+    for (var i = 0; i < numBlanks; i++) {
+        if (chosenWord[i] == letter) {
+            letterInWord = true;
+        }
+    }
+
+
+    if (letterInWord) {
+
+
+        for (var i = 0; i < numBlanks; i++) {
+
+
+            if (chosenWord[i] == letter) {
+                blanksAndSuccesses[i] = letter;
+            }
+        }
+        console.log(blanksAndSuccesses);
+    } else {
+        wrongGuesses.push(letter);
+        numGuesses--;
+    }
+}
+
+function roundComplete() {
+
+
+    console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses);
+
+
+    document.getElementById("guessesLeft").innerHTML = numGuesses;
+    document.getElementById("wordblanks").innerHTML = blanksAndSuccesses.join(" ");
+    document.getElementById("wrongGuesses").innerHTML = wrongGuesses.join(" ");
+
+
+    if (lettersInChosenWord.toString() == blanksAndSuccesses.toString()) {
+        winCounter++;
+        alert("You win!");
+
+
+        document.getElementById("winCounter").innerHTML = winCounter;
+        startGame();
+    } else if (numGuesses == 0) {
+        lossCounter++;
+        alert("You lose ");
+
+
+        document.getElementById("lossCounter").innerHTML = lossCounter;
+        startGame();
+    }
+
+}
+
+
+
+startGame();
+
+
+document.onkeyup = function(event) {
+    letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+
+    checkLetters(letterGuessed);
+    roundComplete();
 }
